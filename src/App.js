@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { render } from 'react-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import ChatBot from 'react-simple-chatbot';
+
+const styles = {
+  fontFamily: 'sans-serif',
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center"
+};
+
+const steps = [
+  {
+    id: '0',
+    message: 'Welcome to react chatbot!',
+    trigger: '1',
+  },
+  {
+    id: '1',
+    user: true,
+    trigger: "2"
+  },
+  {
+    id: "2",
+    message: "What's up bro!!"
+  }
+];
+
+const App = () => (
+  <div style={styles}>
+    <h1>Talk to me baby!!</h1>
+    <ChatBot steps={steps}/>
+  </div>
+);
+
+render(<App />, document.getElementById('root'));
 
 export default App;
